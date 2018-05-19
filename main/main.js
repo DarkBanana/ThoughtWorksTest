@@ -1,99 +1,115 @@
 
-function Dictionary(data){
+function Dictionary(data,lines){
+
+    var firstLine ="";
+    var secondLine ="";
+    var thirdLine ="";
+    var output ="";
 
     if (data == 0){
-      return    "._.\n"+
-                "|.|\n"+
-                "|_|\n";
+        firstLine +=   "._.";
+        secondLine +=  "|.|";
+        thirdLine +=   "|_|";
     }
     if (data == 1){
-      return    "...\n"+
-                "..|\n"+
-                "..|\n"
+        firstLine +=   "...";
+        secondLine +=  "..|";
+        thirdLine +=   "..|"
     }
     if (data == 2){
-      return     "._.\n"+
-                 "._|\n"+
-                 "|_.\n"
+        firstLine +=   "._.";
+        secondLine +=  "._|";
+        thirdLine +=   "|_."
     }
     if (data == 3){
-      return    "._.\n"+
-                "._|\n"+
-                "._|\n"
+        firstLine +=   "._.";
+        secondLine +=  "._|";
+        thirdLine +=   "._|"
     }
     if (data == 4){
-      return    "...\n"+
-                "|_|\n"+
-                "..|\n"
+        firstLine +=   "...";
+        secondLine +=  "|_|";
+        thirdLine +=   "..|";
     }
     if (data == 5){
-      return    "._.\n"+
-                "|_.\n"+
-                "._|\n"
+        firstLine +=   "._.";
+        secondLine +=  "|_.";
+        thirdLine +=   "._|";
     }
     if (data == 6){
-      return    "._.\n"+
-                "|_.\n"+
-                "|_|\n"
+        firstLine +=   "._.";
+        secondLine +=  "|_.";
+        thirdLine +=   "|_|";
     }
     if (data == 7){
-      return    "._.\n"+
-                "..|\n"+
-                "..|\n"
+        firstLine +=   "._.";
+        secondLine +=  "..|";
+      thirdLine +=     "..|"
     }
     if (data == 8){
-      return    "._.\n"+
-                "|_|\n"+
-                "|_|\n"
+        firstLine +=   "._.";
+        secondLine +=  "|_|";
+        thirdLine +=   "|_|"
     }
     if (data == 9){
-      return    "._. \n"+
-                "|_| \n"+
-                "..| \n"
+        firstLine +=   "._.";
+        secondLine +=  "|_|";
+        thirdLine +=   "..|"
     }
 
+    if (lines == "firstLines"){
+        output += firstLine;
+    }else if(lines == "secondLines"){
+        output += secondLine;
+    }else {
+        output += thirdLine;
+    }
 
+    return output;
 }
-
 
 
 module.exports = function main(input) {
     console.log("Debug Info");
 
     console.log("input data's length: "+input.length);
-    var arr = [];
-    for(var i = 0; i < input.length;i++){
-        arr[i] = input.charAt(i);
-    }
-    console.log("arr "+arr);
 
     //Using Data Dictionary method
 
-    var results = Dictionary(3);
-    // results += "2";
-    console.log("results..."+results)
-
+    var firstLines = "firstLines";
+    var secondLines = "secondLines";
+    var thirdLines = "thirdLines";
+    // var lines = firstLines;
     var result = "";
-    if (input == "910" ){
-        return   "._. ... ._.\n"+
-                 "|_| ..| |.|\n"+
-                 "..| ..| |_|\n";
 
+    for(var i = 0; i < input.length;i++){
+        var inputData = input.charAt(i);
+        result += Dictionary(inputData,firstLines)
+        if(i<input.length-1){
+            result += " ";
+        }
     }
+    result += "\n";
 
-    if (input == "256" ){
-        return "._. ._. ._.\n"+
-            "._| |_. |_.\n"+
-            "|_. ._| |_|\n";
-
+    for(var i = 0; i < input.length;i++){
+        var inputData = input.charAt(i);
+        result += Dictionary(inputData,secondLines)
+        if(i<input.length-1){
+            result += " ";
+        }
     }
+    result += "\n";
 
-    if (input == "7" ){
-        return "._.\n"+
-            "..|\n"+
-            "..|\n";
-
+    for(var i = 0; i < input.length;i++){
+        var inputData = input.charAt(i);
+        result += Dictionary(inputData,thirdLines)
+        if(i<input.length-1){
+            result += " ";
+        }
     }
+    result += "\n";
+
+    console.log("result  "+"\n"+result+" ");
 
     return result;
 };
