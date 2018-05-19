@@ -14,17 +14,17 @@ function Dictionary(data,lines){
     if (data == 1){
         firstLine +=   "...";
         secondLine +=  "..|";
-        thirdLine +=   "..|"
+        thirdLine +=   "..|";
     }
     if (data == 2){
         firstLine +=   "._.";
         secondLine +=  "._|";
-        thirdLine +=   "|_."
+        thirdLine +=   "|_.";
     }
     if (data == 3){
         firstLine +=   "._.";
         secondLine +=  "._|";
-        thirdLine +=   "._|"
+        thirdLine +=   "._|";
     }
     if (data == 4){
         firstLine +=   "...";
@@ -44,17 +44,17 @@ function Dictionary(data,lines){
     if (data == 7){
         firstLine +=   "._.";
         secondLine +=  "..|";
-      thirdLine +=     "..|"
+        thirdLine +=   "..|";
     }
     if (data == 8){
         firstLine +=   "._.";
         secondLine +=  "|_|";
-        thirdLine +=   "|_|"
+        thirdLine +=   "|_|";
     }
     if (data == 9){
         firstLine +=   "._.";
         secondLine +=  "|_|";
-        thirdLine +=   "..|"
+        thirdLine +=   "..|";
     }
 
     if (lines == "firstLines"){
@@ -71,15 +71,10 @@ function Dictionary(data,lines){
 
 module.exports = function main(input) {
     console.log("Debug Info");
-
-    console.log("input data's length: "+input.length);
-
     //Using Data Dictionary method
-
     var firstLines = "firstLines";
     var secondLines = "secondLines";
     var thirdLines = "thirdLines";
-    // var lines = firstLines;
     var result = "";
 
     for(var i = 0; i < input.length;i++){
